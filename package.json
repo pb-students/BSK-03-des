@@ -10,21 +10,21 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@vueuse/core": "^8.2.0",
+    "@vueuse/core": "^8.4.2",
     "file-saver": "^2.0.5",
     "mime-db": "^1.52.0",
-    "vue": "^3.2.25"
+    "vue": "^3.2.33"
   },
   "devDependencies": {
-    "@types/jest": "^27.4.1",
-    "@unocss/transformer-variant-group": "^0.30.6",
-    "@vitejs/plugin-vue": "^2.2.0",
-    "typescript": "^4.5.4",
-    "unocss": "^0.30.6",
-    "unplugin-auto-import": "^0.6.4",
-    "vite": "^2.8.0",
-    "vite-auto-import-resolvers": "^2.1.6",
-    "vitest": "^0.6.1",
+    "@types/jest": "^27.5.0",
+    "@unocss/transformer-variant-group": "^0.30.13",
+    "@vitejs/plugin-vue": "^2.3.2",
+    "typescript": "^4.6.4",
+    "unocss": "^0.30.13",
+    "unplugin-auto-import": "^0.6.9",
+    "vite": "^2.9.8",
+    "vite-auto-import-resolvers": "^2.3.0",
+    "vitest": "^0.6.3",
     "vue-tsc": "^0.29.8"
   }
 }
