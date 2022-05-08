@@ -1,5 +1,5 @@
 import mimedb from 'mime-db'
-import { get } from '@vueuse/core'
+import { get } from "@vueuse/core"
 
 export default (polynomial: MaybeRef<string>, startingState: MaybeRef<number>) => {
   const encrypt = async (file: MaybeRef<File>) => {

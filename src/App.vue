@@ -56,18 +56,26 @@ watchEffect(() => {
   }
 })
 
-const tabs = ['Transformation ciphers', 'File encryption']
+const tabs = ['Transformation ciphers', 'File encryption', 'DES file encryption']
 const tab = ref(tabs[0])
 
 const polynomial = ref('1 + x + x ** 4')
 const fileEncryption = useFileEncryption(polynomial)
-
 const encryptFileChange = async ({ target: { files: [file] } }) => {
   saveAs(await fileEncryption.encrypt(file))
 }
 
 const decryptFileChange = async ({ target: { files: [file] } }) => {
   saveAs(await fileEncryption.decrypt(file))
+}
+
+const desEncryption = useDES()
+const encryptDESFileChange = async ({ target: { files: [file] } }) => {
+  saveAs(await desEncryption.encrypt(file))
+}
+
+const decryptDESFileChange = async ({ target: { files: [file] } }) => {
+  saveAs(await desEncryption.decrypt(file))
 }
 </script>
 
@@ -77,6 +85,19 @@ const decryptFileChange = async ({ target: { files: [file] } }) => {
       <div class="flex mb-2">
         <div @click="tab = t" v-for="t in tabs" :key="t" class="px-2 py-1 text-xs font-mono rounded cursor-pointer" :class="{ 'bg-white text-orange-500 shadow': tab === t }">{{ t }}</div>
       </div>
+      <template v-if="tab === tabs[2]">
+        <div class="grid grid-cols-2 gap-x-4 gap-y-12 text-gray-700 font-sans text-sm bg-white p-8 rounded shadow-lg min-w-2xl">
+          <label>
+            encrypt
+            <input @change="encryptDESFileChange" type="file" class="block mt-2" />
+          </label>
+
+          <label>
+            decrypt
+            <input @change="decryptDESFileChange" type="file" class="block mt-2" />
+          </label>
+        </div>
+      </template>
       <template v-if="tab === tabs[1]">
         <div class="grid grid-cols-3 gap-x-4 gap-y-12 text-gray-700 font-sans text-sm bg-white p-8 rounded shadow-lg min-w-2xl">
           <label>
