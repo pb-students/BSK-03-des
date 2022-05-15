@@ -94,7 +94,7 @@ export default (key = 108755180518133317n) => {
 
       keys.push(permutate([...new BitArray(keyC, 28), ...new BitArray(keyD, 28)], PC2))
     }
-    const reversedKeys = keys.reverse()
+    const reversedKeys = keys.reverse() // reversing keys for decrypt
 
     const result = []
     for (const [left, right] of blockPairs32) {
